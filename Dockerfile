@@ -1,8 +1,11 @@
 FROM ubuntu:jammy
-RUN apt update
-RUN apt install -y build-essential qt5-qmake qtbase5-dev qtbase5-dev-tools sudo wget
-RUN mkdir /app
-RUN cd /app
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y build-essential qt5-qmake qtbase5-dev qtbase5-dev-tools sudo wget && \
+    apt clean
+RUN mkdir -p /app/skyscraper
+RUN cd /app/skyscraper
 RUN wget -O - https://raw.githubusercontent.com/muldjord/skyscraper/master/update_skyscraper.sh | bash
 ENTRYPOINT ["Skyscraper"]
 WORKDIR /data
