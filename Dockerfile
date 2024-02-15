@@ -2,7 +2,7 @@ FROM ubuntu:jammy
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y build-essential qt5-qmake qtbase5-dev qtbase5-dev-tools sudo wget && \
+    apt install -y build-essential qt5-qmake qtbase5-dev qtbase5-dev-tools sudo xmlstarlet wget && \
     apt clean
 RUN mkdir -p /app/skyscraper
 RUN cd /app/skyscraper
