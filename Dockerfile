@@ -6,7 +6,7 @@ RUN apt update && \
     apt clean
 RUN mkdir -p /app/skyscraper
 RUN cd /app/skyscraper
-RUN wget -O - https://raw.githubusercontent.com/muldjord/skyscraper/master/update_skyscraper.sh | | sh
+RUN wget -O - https://raw.githubusercontent.com/muldjord/skyscraper/master/update_skyscraper.sh | sh
 RUN cd /app
 ENTRYPOINT ["Skyscraper"]
 WORKDIR /data
