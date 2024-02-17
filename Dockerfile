@@ -9,8 +9,8 @@ RUN git clone https://github.com/Gemba/skyscraper.git /app/skyscraper
 RUN cd /app/skyscraper
 RUN git remote add maxexcloo https://github.com/maxexcloo/skyscraper.git
 RUN git pull maxexcloo patch-1
+RUN qmake
 RUN make -j$(nproc)
 RUN make install
-RUN cd /app
 ENTRYPOINT ["Skyscraper"]
 WORKDIR /data
