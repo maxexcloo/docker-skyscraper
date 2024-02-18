@@ -5,10 +5,9 @@ RUN apt update && \
     apt install -y build-essential git qt5-qmake qtbase5-dev qtbase5-dev-tools sudo wget xmlstarlet && \
     apt clean
 RUN mkdir -p /app/skyscraper && \
-    git clone https://github.com/Gemba/skyscraper.git /app/skyscraper && \
+    git clone https://github.com/maxexcloo/skyscraper.git /app/skyscraper && \
     cd /app/skyscraper && \
-    git remote add maxexcloo https://github.com/maxexcloo/skyscraper.git && \
-    git pull maxexcloo patch-1 && \
+    git checkout patch-1 && \
     qmake && \
     make -j$(nproc) && \
     make install
